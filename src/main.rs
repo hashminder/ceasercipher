@@ -9,12 +9,16 @@ fn random_bytes(len: usize) -> Vec<u8> {
 
 
 fn encrypt (plaintext : String,key : u8) -> String {
-    let shift_key: u8 = key;
+    let shift_key: u8 = key % 126;
     let message = plaintext.as_bytes();
     let mut cipher : Vec<u8> = Vec::new();
     for i in message {
         cipher.push((i+ shift_key) % 128);
     };
+    if cipher == plaintext.as_bytes() {
+        println!("change your key... it wont loop the cipher forward");
+        return "0".to_string()
+    }
      return String::from_utf8(cipher).expect("failed to convert");
 }
 
