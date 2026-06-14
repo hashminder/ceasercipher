@@ -1,4 +1,5 @@
 Hello !
+( READ THE README.txt AS CODE VIEW FOR BETTER LOOK)
 
 use encrypt function to encrypt your plaintext :
   function overview : fn encrypt (plaintext : String,key : u8) -> String
